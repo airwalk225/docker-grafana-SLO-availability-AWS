@@ -1,0 +1,14 @@
+version: '3'
+services:
+  website:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./spec/aws/credentials:/usr/share/grafana/.aws/credentials
+      - ./spec/datasources/:/etc/grafana/provisioning/datasources/
+      - ./spec/dashboards/:/etc/grafana/provisioning/dashboards/
+      - ./spec/dashboard-items/dashboards/:/var/lib/grafana/dashboards/
+    restart: always
