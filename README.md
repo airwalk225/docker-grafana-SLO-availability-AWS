@@ -1,6 +1,6 @@
 # Grafana - Docker
 
-Simple Grafana Docker container to bring up a Grafan instance with provisioned data sources and dashboards/panels.
+Simple Grafana Docker container to bring up a Grafana instance with provisioned data sources and dashboards/panels.
 
 ## Getting Started
 
@@ -21,7 +21,7 @@ Install Docker and Docker compose on your system
 https://docs.docker.com/install/
 ```
 
-For the default data source of CloudWatch, you will need some credentials set up
+For the default data source of CloudWatch, you will need some credentials set up:
 
 ```
 Log into your AWS account and create a user with the following IAM permissions
@@ -32,7 +32,8 @@ CloudWatchReadOnlyAccess - AWS managed policy
 ```
 
 Collect the access key IF and the secret access key ID and place them into a credentials file as per [this](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) - Be sure its named default.  
-This file will be excluded via the `.gitignore`
+This file will be excluded via the `.gitignore`  
+Put this credentials file into `spec/aws`
 
 When you bring the docker container up it will automatically connect to the this data source.  
 You can now go and build some dashboards and panaels, save the `json` of the dashboard into `spec/dashboard-items/dashboards`.   
